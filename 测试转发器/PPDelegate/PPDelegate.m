@@ -61,7 +61,7 @@ static id _instace;
         Ivar ivar = ivarList[i];
         NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(ivar)];
         if ([ivarName hasSuffix:@"delegate"]) {
-            [target setValue:self forKey:@"delegate"];
+            [target setValue:self forKey:ivarName];
             return YES;
         }
     }
@@ -76,7 +76,7 @@ static id _instace;
             objc_property_t property = propertyList[i];
             NSString *propertyName = [NSString stringWithUTF8String:property_getName(property)];
             if ([propertyName hasSuffix:@"delegate"]) {
-                [target setValue:self forKey:@"delegate"];
+                [target setValue:self forKey:propertyName];
     
             }
         }
