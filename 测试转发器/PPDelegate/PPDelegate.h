@@ -12,7 +12,7 @@
 @interface PPDelegate : NSObject
 
 
-+ (instancetype)shareDelegate;
++ (instancetype)delegate;
 
 - (void)addDelegates:(NSArray *)delegates forTarget:(id)target;
 
