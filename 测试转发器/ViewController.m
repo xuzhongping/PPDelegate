@@ -34,7 +34,7 @@
     self.ppd = [PPDelegate delegate];
     
    
-    [self.ppd addDelegates:@[p,s] forTarget:self.tableView];
+    [self.ppd addDelegates:@[p,s,self] forTarget:self.tableView];
     
 }
 

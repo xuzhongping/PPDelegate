@@ -9,14 +9,36 @@
 #import "PPDelegate.h"
 #import <objc/message.h>
 
+typedef id(^weakArray)(void);
+
 @interface PPDelegate ()
 
-@property (nonatomic,strong)NSArray *delegates;
+@property (nonatomic,strong)NSMutableArray *delegates;
 
 
 @end
 
 @implementation PPDelegate
+
+- (NSMutableArray *)delegates{
+    if (!_delegates) {
+        _delegates = @[].mutableCopy;
+    }
+    return _delegates;
+}
+
+
+- (weakArray)packetReference: (id)obj{
+    __weak id weakObjc = obj;
+    return ^{
+        return weakObjc;
+    };
+}
+
+- (id)unpackReference:(weakArray)array{
+
+    return array ? array() : nil;
+}
 
 + (instancetype)delegate{
     return [[self alloc]init];
@@ -24,11 +46,19 @@
 
 
 - (void)addDelegates:(NSArray *)delegates forTarget:(id)target{
-    self.delegates = delegates.copy;
+    [self.delegates removeAllObjects];
+    [self reference:delegates];
     
     if ([self checkoutHasIvar:target]) return;
         [self checkoutProperty:target];
     
+}
+
+- (void)reference:(NSArray *)array{
+
+    for (id obj in array) {
+        [self.delegates addObject:[self packetReference:obj]];
+    }
 }
 
 - (BOOL)checkoutHasIvar:(id)target{
@@ -61,8 +91,8 @@
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector{
-    for (id obj in _delegates) {
-        if (![obj respondsToSelector:aSelector]) {
+    for (id obj in self.delegates) {
+        if (![[self unpackReference:obj] respondsToSelector:aSelector]) {
             return NO;
         }
     }
@@ -70,14 +100,14 @@
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation{
-    for (id obj in _delegates) {
-        [anInvocation invokeWithTarget:obj];
+    for (id obj in self.delegates) {
+        [anInvocation invokeWithTarget:[self unpackReference:obj]];
     }
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
-    for (id obj in _delegates) {
-      return  [obj methodSignatureForSelector:aSelector];
+    for (id obj in self.delegates) {
+      return  [[self unpackReference:obj] methodSignatureForSelector:aSelector];
     }
     return nil;
 }
