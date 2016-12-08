@@ -14,6 +14,8 @@
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic,strong)PPDelegate *ppd;
+
 @property (nonatomic,strong)Person *p;
 @property (nonatomic,strong)Student *s;
 @end
@@ -29,7 +31,10 @@
     self.p = p;
     self.s = s;
     
-    [[PPDelegate shareDelegate] addDelegates:@[p,s,self] forTarget:self.tableView];
+    self.ppd = [PPDelegate delegate];
+    
+   
+    [self.ppd addDelegates:@[p,s] forTarget:self.tableView];
     
 }
 
@@ -45,5 +50,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"v 选中");
+}
+
+- (void)dealloc{
+    
 }
 @end

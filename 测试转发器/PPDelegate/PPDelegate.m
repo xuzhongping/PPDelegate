@@ -13,7 +13,6 @@
 
 @property (nonatomic,strong)NSArray *delegates;
 
-@property (nonatomic,strong)id target;
 
 @end
 
@@ -81,6 +80,10 @@
       return  [obj methodSignatureForSelector:aSelector];
     }
     return nil;
+}
+
+- (void)dealloc{
+
 }
 
 @end
