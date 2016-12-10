@@ -107,7 +107,9 @@ typedef id(^weakArray)(void);
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
     for (id obj in self.delegates) {
-      return  [[self unpackReference:obj] methodSignatureForSelector:aSelector];
+      NSMethodSignature *sig =  [[self unpackReference:obj] methodSignatureForSelector:aSelector];
+        if (!sig) continue;
+        return sig;
     }
     return nil;
 }
