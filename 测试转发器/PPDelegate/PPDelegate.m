@@ -50,7 +50,7 @@ typedef id(^weakArray)(void);
     [self reference:delegates];
     
     if ([self checkoutHasIvar:target]) return;
-        [self checkoutProperty:target];
+        [self checkoutHasProperty:target];
     
 }
 
@@ -76,7 +76,7 @@ typedef id(^weakArray)(void);
     return NO;
 }
 
-- (void)checkoutProperty:(id)target{
+- (BOOL)checkoutHasProperty:(id)target{
      unsigned int count = 0;
        objc_property_t *propertyList = class_copyPropertyList([target class], &count);
     
@@ -85,9 +85,10 @@ typedef id(^weakArray)(void);
             NSString *propertyName = [NSString stringWithUTF8String:property_getName(property)];
             if ([propertyName hasSuffix:@"delegate"]) {
                 [target setValue:self forKey:propertyName];
-    
+                return YES;
             }
         }
+    return NO;
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector{
