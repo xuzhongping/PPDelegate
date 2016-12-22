@@ -36,7 +36,6 @@ typedef id(^weakArray)(void);
 }
 
 - (id)unpackReference:(weakArray)array{
-
     return array ? array() : nil;
 }
 
@@ -78,7 +77,7 @@ typedef id(^weakArray)(void);
 
 - (BOOL)checkoutHasProperty:(id)target{
      unsigned int count = 0;
-       objc_property_t *propertyList = class_copyPropertyList([target class], &count);
+        objc_property_t *propertyList = class_copyPropertyList([target class], &count);
     
         for (int i = 0; i < count; i++) {
             objc_property_t property = propertyList[i];
