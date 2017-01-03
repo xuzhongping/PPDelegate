@@ -9,7 +9,7 @@
 #import "PPDelegate.h"
 #import <objc/message.h>
 
-typedef id(^weakArray)(void);
+typedef id(^weakArrayObj)(void);
 
 @interface PPDelegate ()
 
@@ -28,15 +28,15 @@ typedef id(^weakArray)(void);
 }
 
 
-- (weakArray)packetReference: (id)obj{
-    __weak id weakObjc = obj;
+- (weakArrayObj)packetReference: (id)obj{
+    __weak id weakObj = obj;
     return ^{
-        return weakObjc;
+        return weakObj;
     };
 }
 
-- (id)unpackReference:(weakArray)array{
-    return array ? array() : nil;
+- (id)unpackReference:(weakArrayObj)arrayObj{
+    return arrayObj ? arrayObj() : nil;
 }
 
 + (instancetype)delegate{
@@ -49,7 +49,8 @@ typedef id(^weakArray)(void);
     [self reference:delegates];
     
     if ([self checkoutHasIvar:target]) return;
-        [self checkoutHasProperty:target];
+    if ([self checkoutHasProperty:target]) return;
+    NSAssert(0, @"the instance '%@' not key 'delegate'",target);
     
 }
 
