@@ -28,6 +28,7 @@
     Person *p = [Person new];
     Student *s = [Student new];
     
+    
     self.p = p;
     self.s = s;
     

@@ -45,13 +45,21 @@ typedef id(^weakArrayObj)(void);
 
 
 - (void)addDelegates:(NSArray *)delegates forTarget:(id)target{
+    
+    [self addDelegates:delegates forTarget:target customDelegateProperty:nil];
+}
+
+- (void)addDelegates:(NSArray *)delegates forTarget:(id)target customDelegateProperty:(NSString *)property{
     [self.delegates removeAllObjects];
     [self reference:delegates];
     
-    if ([self checkoutHasIvar:target]) return;
-    if ([self checkoutHasProperty:target]) return;
-    NSAssert(0, @"the instance '%@' not key 'delegate'",target);
-    
+    if (!property) {
+        if ([self checkoutHasIvar:target]) return;
+        if ([self checkoutHasProperty:target]) return;
+    }else {
+        [target setValue:self forKey:property];
+    }
+
 }
 
 - (void)reference:(NSArray *)array{
