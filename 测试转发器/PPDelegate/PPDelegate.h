@@ -15,18 +15,18 @@
 + (instancetype)delegate;
 
 /**
- add multiple delegate for observer
+ add multiple delegate for instance
 
  @param delegates observer array
- @param target    by the observe
+ @param target    by the instance
  */
 - (void)addDelegates:(NSArray *)delegates forTarget:(id)target;
 
 /**
-  add multiple delegate for observer
+  add multiple delegate for instance
 
  @param delegates observer array
- @param target    by the observe
+ @param target    by the instance
  @param property  custom 'delegate' property
  */
 - (void)addDelegates:(NSArray *)delegates forTarget:(id)target customDelegateProperty:(NSString *)property;
