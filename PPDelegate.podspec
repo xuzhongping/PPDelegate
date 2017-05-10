@@ -86,7 +86,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "PPDelegate/测试转发器/PPDelegate/*.{h,m}"
+  s.source_files  = "PPDelegate/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
 
