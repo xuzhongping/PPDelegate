@@ -24,8 +24,7 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC
-                   DESC
+  s.description  = "add more Obsevers to instance"
 
   s.homepage     = "https://github.com/JungHsu/PPDelegate"
   
@@ -37,8 +36,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "LICENSE" }
+
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -87,7 +86,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "PPDelegate", "PPDelegate/测试转发器/PPDelegate/*.{h,m}"
+  s.source_files  = "PPDelegate/测试转发器/PPDelegate/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
 

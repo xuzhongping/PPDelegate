@@ -17,7 +17,7 @@
 		C0C8ABF51DF7E78600C33CA9 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8ABF41DF7E78600C33CA9 /* _____UITests.m */; };
 		C0C8AC071DF7E82E00C33CA9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8AC061DF7E82E00C33CA9 /* Person.m */; };
 		C0C8AC0A1DF7E83700C33CA9 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8AC091DF7E83700C33CA9 /* Student.m */; };
-		C0C8AC121DF80E7D00C33CA9 /* PPDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8AC111DF80E7D00C33CA9 /* PPDelegate.m */; };
+		ED3CA7571EC2E6C4003C7E0D /* PPDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3CA7561EC2E6C4003C7E0D /* PPDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +58,8 @@
 		C0C8AC061DF7E82E00C33CA9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		C0C8AC081DF7E83700C33CA9 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		C0C8AC091DF7E83700C33CA9 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
-		C0C8AC101DF80E7D00C33CA9 /* PPDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPDelegate.h; sourceTree = "<group>"; };
-		C0C8AC111DF80E7D00C33CA9 /* PPDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPDelegate.m; sourceTree = "<group>"; };
+		ED3CA7551EC2E6C4003C7E0D /* PPDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPDelegate.h; sourceTree = "<group>"; };
+		ED3CA7561EC2E6C4003C7E0D /* PPDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +90,7 @@
 		C0C8ABC31DF7E78500C33CA9 = {
 			isa = PBXGroup;
 			children = (
+				ED3CA7541EC2E6C4003C7E0D /* PPDelegate */,
 				C0C8ABCE1DF7E78600C33CA9 /* 测试转发器 */,
 				C0C8ABE81DF7E78600C33CA9 /* 测试转发器Tests */,
 				C0C8ABF31DF7E78600C33CA9 /* 测试转发器UITests */,
@@ -110,7 +111,6 @@
 		C0C8ABCE1DF7E78600C33CA9 /* 测试转发器 */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8AC0F1DF80E7D00C33CA9 /* PPDelegate */,
 				C0C8ABD21DF7E78600C33CA9 /* AppDelegate.h */,
 				C0C8ABD31DF7E78600C33CA9 /* AppDelegate.m */,
 				C0C8ABD51DF7E78600C33CA9 /* ViewController.h */,
@@ -154,11 +154,11 @@
 			path = "测试转发器UITests";
 			sourceTree = "<group>";
 		};
-		C0C8AC0F1DF80E7D00C33CA9 /* PPDelegate */ = {
+		ED3CA7541EC2E6C4003C7E0D /* PPDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8AC101DF80E7D00C33CA9 /* PPDelegate.h */,
-				C0C8AC111DF80E7D00C33CA9 /* PPDelegate.m */,
+				ED3CA7551EC2E6C4003C7E0D /* PPDelegate.h */,
+				ED3CA7561EC2E6C4003C7E0D /* PPDelegate.m */,
 			);
 			path = PPDelegate;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 				C0C8ABD41DF7E78600C33CA9 /* AppDelegate.m in Sources */,
 				C0C8AC071DF7E82E00C33CA9 /* Person.m in Sources */,
 				C0C8ABD11DF7E78600C33CA9 /* main.m in Sources */,
-				C0C8AC121DF80E7D00C33CA9 /* PPDelegate.m in Sources */,
+				ED3CA7571EC2E6C4003C7E0D /* PPDelegate.m in Sources */,
 				C0C8AC0A1DF7E83700C33CA9 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
