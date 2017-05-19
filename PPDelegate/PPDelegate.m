@@ -9,7 +9,7 @@
 #import "PPDelegate.h"
 #import <objc/message.h>
 
-typedef id(^weakArrayObj)(void);
+typedef id(^WeakArrayObj)(void);
 
 @interface PPDelegate ()
 
@@ -28,14 +28,14 @@ typedef id(^weakArrayObj)(void);
 }
 
 
-- (weakArrayObj)packetReference: (id)obj{
+- (WeakArrayObj)packetReference: (id)obj{
     __weak id weakObj = obj;
     return ^{
         return weakObj;
     };
 }
 
-- (id)unpackReference:(weakArrayObj)arrayObj{
+- (id)unpackReference:(WeakArrayObj)arrayObj{
     return arrayObj ? arrayObj() : nil;
 }
 
