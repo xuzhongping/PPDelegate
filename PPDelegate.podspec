@@ -3,12 +3,12 @@ Pod::Spec.new do |s|
 
   s.name         = "PPDelegate"
   s.version      = "0.1.1"
-  s.summary      = "a tool of set more delegat"
+  s.summary      = "a tool of set more delegate"
 
   s.platform     = :ios, '6.0'
   s.ios.deployment_target = '6.0'
  
-  s.description  = "设置多个监听者"
+  s.description  = "设置多个监听者,完成事件的监听"
 
   s.homepage     = "https://github.com/JungHsu/PPDelegate"
 
