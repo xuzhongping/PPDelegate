@@ -1,9 +1,8 @@
-PPDelegate
+# PPDelegate
 
-[![CI Status](http://img.shields.io/travis/1021057927@qq.com/IFMTest.svg?style=flat)](https://travis-ci.org/1021057927@qq.com/IFMTest)
-[![Version](https://img.shields.io/cocoapods/v/IFMTest.svg?style=flat)](http://cocoapods.org/pods/PPDelegate)
+[![CI Status](http://img.shields.io/travis/1021057927@qq.com/PPDelegate.svg?style=flat)](https://travis-ci.org/1021057927@qq.com/PPDelegate)
+[![Version](https://img.shields.io/cocoapods/v/PPDelegate.svg?style=flat)](http://cocoapods.org/pods/PPDelegate)
 [![Pod License](http://img.shields.io/cocoapods/l/PPDelegate.svg?style=flat)](https://opensource.org/licenses/MIT)
-
 
 
 
@@ -25,7 +24,7 @@ PPDelegate
 
 ## 支持CocoaPods
 
-IFMTest is available through [CocoaPods](http://cocoapods.org). To install
+PPDelegate is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
@@ -38,4 +37,4 @@ pod "Delagate"
 
 ## License
 
-IFMTest is available under the MIT license. See the LICENSE file for more info.
+PPDelegate is available under the MIT license. See the LICENSE file for more info.
