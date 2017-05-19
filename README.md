@@ -1,4 +1,4 @@
-# IFMTest
+PPDelegate
 
 [![CI Status](http://img.shields.io/travis/1021057927@qq.com/IFMTest.svg?style=flat)](https://travis-ci.org/1021057927@qq.com/IFMTest)
 [![Version](https://img.shields.io/cocoapods/v/IFMTest.svg?style=flat)](http://cocoapods.org/pods/PPDelegate)
@@ -6,7 +6,7 @@
 
 
 
-# PPDelegate
+
 * 支持传入一个数组实现多个代理的功能
 
 #### 使用方式如下:
