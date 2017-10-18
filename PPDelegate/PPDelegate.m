@@ -15,44 +15,22 @@ typedef id(^WeakArrayObj)(void);
 
 @property (nonatomic,strong)NSMutableArray *delegates;
 
-
 @end
 
 @implementation PPDelegate
 
-- (NSMutableArray *)delegates{
-    if (!_delegates) {
-        _delegates = @[].mutableCopy;
-    }
-    return _delegates;
-}
-
-
-- (WeakArrayObj)packetReference: (id)obj{
-    __weak id weakObj = obj;
-    return ^{
-        return weakObj;
-    };
-}
-
-- (id)unpackReference:(WeakArrayObj)arrayObj{
-    return arrayObj ? arrayObj() : nil;
-}
-
 + (instancetype)delegate{
-    return [[self alloc]init];
+    return [PPDelegate alloc];
 }
-
 
 - (void)addDelegates:(NSArray *)delegates forTarget:(id)target{
-    
     [self addDelegates:delegates forTarget:target customDelegateProperty:nil];
 }
 
 - (void)addDelegates:(NSArray *)delegates forTarget:(id)target customDelegateProperty:(NSString *)property{
     [self.delegates removeAllObjects];
     [self reference:delegates];
-    
+
     if (!property) {
         if ([self checkoutHasIvar:target]) return;
         if ([self checkoutHasProperty:target]) return;
@@ -62,12 +40,7 @@ typedef id(^WeakArrayObj)(void);
 
 }
 
-- (void)reference:(NSArray *)array{
 
-    for (id obj in array) {
-        [self.delegates addObject:[self packetReference:obj]];
-    }
-}
 
 - (BOOL)checkoutHasIvar:(id)target{
     unsigned int count = 0;
@@ -123,8 +96,28 @@ typedef id(^WeakArrayObj)(void);
     return nil;
 }
 
-- (void)dealloc{
-
+- (NSMutableArray *)delegates{
+    if (!_delegates) {
+        _delegates = @[].mutableCopy;
+    }
+    return _delegates;
 }
 
+
+- (WeakArrayObj)packetReference: (id)obj{
+    __weak id weakObj = obj;
+    return ^{
+        return weakObj;
+    };
+}
+
+- (id)unpackReference:(WeakArrayObj)arrayObj{
+    return arrayObj ? arrayObj() : nil;
+}
+
+- (void)reference:(NSArray *)array{
+    for (id obj in array) {
+        [self.delegates addObject:[self packetReference:obj]];
+    }
+}
 @end

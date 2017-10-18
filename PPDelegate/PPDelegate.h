@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface PPDelegate : NSObject
+@interface PPDelegate : NSProxy
 
 
 + (instancetype)delegate;
